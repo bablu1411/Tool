@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tool to convert images to JPG/JPEG format. Supports PNG, GIF, WEBP and other formats to high quality JPG conversion.">
+    <meta name="keywords" content="image to jpg, convert to jpeg, jpg converter, image converter, online image conversion">
+    <meta name="author" content="DeepSeek">
+    <meta name="robots" content="index, follow">
+    <title>Image to JPG Converter | Free Online Tool by DeepSeek</title>
+    <link rel="canonical" href="https://yourwebsite.com/image-to-jpg" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Image to JPG Converter | Free Online Tool by DeepSeek">
+    <meta property="og:description" content="Convert images to JPG/JPEG format easily. Supports multiple formats with high quality conversion.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/image-to-jpg">
+    <meta property="og:image" content="https://yourwebsite.com/images/image-to-jpg-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Google AdSense (Replace YOUR_PUBLISHER_ID with your actual ID) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
+    
+    <style>
+        :root {
+            --bg-color: #1E1E2F;
+            --text-color: #EAEAEA;
+            --header-bg: #2B2D42;
+            --accent-color: #FFD700;
+            --tool-card-bg: #3A3D5B;
+            --hover-bg: #FFD700;
+            --hover-text: #1E1E2F;
+            --button-hover: #E6C200;
+            --shadow: rgba(255, 215, 0, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        header {
+            background-color: var(--header-bg);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .powered-by {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            color: var(--accent-color);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .ad-container {
+            margin: 2rem 0;
+            background-color: var(--tool-card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .tool-container {
+            background-color: var(--tool-card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px var(--shadow);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .tool-container:hover {
+            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.3);
+        }
+        
+        .upload-area {
+            border: 2px dashed var(--accent-color);
+            border-radius: 8px;
+            padding: 3rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+        }
+        
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
+        }
+        
+        .settings {
+            margin-top: 2rem;
+        }
+        
+        .setting-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        select, input[type="range"] {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid var(--accent-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .preview-container {
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .preview-title {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .download-btn {
+            display: none;
+            margin-top: 1rem;
+        }
+        
+        footer {
+            background-color: var(--header-bg);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tool-container {
+                padding: 1.5rem;
+            }
+            
+            .upload-area {
+                padding: 2rem 1rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 1rem auto;
+            border: 4px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid var(--accent-color);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Image to JPG Converter</h1>
+            <p class="tagline">Convert images to JPG/JPEG format easily</p>
+            <p class="powered-by">powered by DeepSeek</p>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Top Ad Banner -->
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <div class="tool-container">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <h3>Drag & Drop your image here</h3>
+                <p>or</p>
+                <button class="btn" id="selectFileBtn">Select File</button>
+                <input type="file" id="fileInput" class="file-input" accept="image/*">
+            </div>
+            
+            <div class="settings">
+                <div class="setting-group">
+                    <label for="quality">JPG Quality:</label>
+                    <input type="range" id="quality" min="1" max="100" value="85">
+                    <span id="qualityValue">85%</span>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="outputSize">Output Size:</label>
+                    <select id="outputSize">
+                        <option value="original">Original Size</option>
+                        <option value="custom">Custom Size</option>
+                        <option value="hd">HD (1280x720)</option>
+                        <option value="fullhd">Full HD (1920x1080)</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group" id="customSizeGroup" style="display: none;">
+                    <label for="customWidth">Custom Width (px):</label>
+                    <input type="number" id="customWidth" min="1" placeholder="Width">
+                    
+                    <label for="customHeight" style="margin-top: 0.5rem;">Custom Height (px):</label>
+                    <input type="number" id="customHeight" min="1" placeholder="Height">
+                </div>
+                
+                <button class="btn" id="convertBtn" disabled>Convert to JPG</button>
+                <div class="spinner" id="spinner"></div>
+            </div>
+            
+            <div class="preview-container" id="previewContainer">
+                <h3 class="preview-title">Preview</h3>
+                <img id="imagePreview" class="image-preview" src="" alt="Preview">
+                <button class="btn download-btn" id="downloadBtn">Download JPG</button>
+            </div>
+        </div>
+        
+        <!-- Middle Ad Banner -->
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <div class="tool-container">
+            <h2>How to Convert Images to JPG</h2>
+            <ol style="margin-top: 1rem; padding-left: 1.5rem;">
+                <li>Click "Select File" or drag & drop your image</li>
+                <li>Adjust quality and size settings (optional)</li>
+                <li>Click "Convert to JPG" button</li>
+                <li>Download your converted JPG image</li>
+            </ol>
+            
+            <h2 style="margin-top: 1.5rem;">Supported Formats</h2>
+            <p style="margin-top: 0.5rem;">PNG, GIF, WEBP, BMP, TIFF, SVG and more</p>
+            
+            <h2 style="margin-top: 1.5rem;">About JPG Format</h2>
+            <p style="margin-top: 0.5rem;">JPEG (Joint Photographic Experts Group) is a commonly used method of lossy compression for digital images. It's the most widely used image format on the web due to its efficient compression and compatibility.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">About</a>
+            </div>
+            <p class="copyright">© 2023 Image to JPG Converter. All rights reserved. Powered by DeepSeek.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const uploadArea = document.getElementById('uploadArea');
+            const selectFileBtn = document.getElementById('selectFileBtn');
+            const fileInput = document.getElementById('fileInput');
+            const convertBtn = document.getElementById('convertBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const previewContainer = document.getElementById('previewContainer');
+            const imagePreview = document.getElementById('imagePreview');
+            const qualitySlider = document.getElementById('quality');
+            const qualityValue = document.getElementById('qualityValue');
+            const outputSize = document.getElementById('outputSize');
+            const customSizeGroup = document.getElementById('customSizeGroup');
+            const spinner = document.getElementById('spinner');
+            
+            // Variables
+            let selectedFile = null;
+            let convertedImageUrl = null;
+            
+            // Event Listeners
+            selectFileBtn.addEventListener('click', () => fileInput.click());
+            
+            fileInput.addEventListener('change', handleFileSelect);
+            
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.style.backgroundColor = 'rgba(255, 215, 0, 0.2)';
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.style.backgroundColor = '';
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.style.backgroundColor = '';
+                if (e.dataTransfer.files.length) {
+                    fileInput.files = e.dataTransfer.files;
+                    handleFileSelect({ target: fileInput });
+                }
+            });
+            
+            qualitySlider.addEventListener('input', () => {
+                qualityValue.textContent = `${qualitySlider.value}%`;
+            });
+            
+            outputSize.addEventListener('change', () => {
+                customSizeGroup.style.display = outputSize.value === 'custom' ? 'block' : 'none';
+            });
+            
+            convertBtn.addEventListener('click', convertToJpg);
+            downloadBtn.addEventListener('click', downloadImage);
+            
+            // Functions
+            function handleFileSelect(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                
+                if (!file.type.match('image.*')) {
+                    alert('Please select an image file.');
+                    return;
+                }
+                
+                selectedFile = file;
+                convertBtn.disabled = false;
+                
+                // Show preview
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    previewContainer.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+            
+            function convertToJpg() {
+                if (!selectedFile) return;
+                
+                spinner.style.display = 'block';
+                convertBtn.disabled = true;
+                
+                // Simulate conversion delay (in a real app, this would be actual conversion)
+                setTimeout(() => {
+                    const quality = qualitySlider.value / 100;
+                    
+                    // In a real implementation, you would use canvas to convert the image
+                    // This is a simplified version for demonstration
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width;
+                        let height = img.height;
+                        
+                        // Handle output size
+                        switch(outputSize.value) {
+                            case 'hd':
+                                width = 1280;
+                                height = 720;
+                                break;
+                            case 'fullhd':
+                                width = 1920;
+                                height = 1080;
+                                break;
+                            case 'custom':
+                                const customWidth = parseInt(document.getElementById('customWidth').value);
+                                const customHeight = parseInt(document.getElementById('customHeight').value);
+                                if (customWidth && customHeight) {
+                                    width = customWidth;
+                                    height = customHeight;
+                                }
+                                break;
+                        }
+                        
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        
+                        // Convert to JPG with specified quality
+                        convertedImageUrl = canvas.toDataURL('image/jpeg', quality);
+                        imagePreview.src = convertedImageUrl;
+                        downloadBtn.style.display = 'inline-block';
+                        spinner.style.display = 'none';
+                        convertBtn.disabled = false;
+                    };
+                    
+                    img.src = URL.createObjectURL(selectedFile);
+                }, 1000);
+            }
+            
+            function downloadImage() {
+                if (!convertedImageUrl) return;
+                
+                const link = document.createElement('a');
+                link.href = convertedImageUrl;
+                link.download = `converted_${selectedFile.name.replace(/\.[^/.]+$/, '')}.jpg`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        });
+    </script>
+    
+    <!-- Structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Image to JPG Converter",
+        "description": "Free online tool to convert images to JPG/JPEG format. Supports PNG, GIF, WEBP and other formats to high quality JPG conversion.",
+        "url": "https://yourwebsite.com/image-to-jpg",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "DeepSeek"
+        }
+    }
+    </script>
+</body>
+</html>
