@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online JSON Formatter tool to format, validate, and minify JSON data. Beautify and make your JSON readable with our powerful tool.">
+    <meta name="keywords" content="JSON formatter, JSON validator, JSON minifier, JSON beautifier, JSON tool">
+    <meta name="author" content="DeepSeek">
+    <title>JSON Formatter | Format, Validate & Minify JSON | DeepSeek</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --bg-color: #1E1E2F;
+            --text-color: #EAEAEA;
+            --header-bg: #2B2D42;
+            --accent-color: #FFD700;
+            --tool-card-bg: #3A3D5B;
+            --hover-bg: #FFD700;
+            --hover-text: #1E1E2F;
+            --button-hover: #E6C200;
+            --box-shadow: rgba(255, 215, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .ad-container {
+            background-color: var(--tool-card-bg);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px var(--box-shadow);
+        }
+
+        .tool-card {
+            background-color: var(--tool-card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            background-color: var(--hover-bg);
+            color: var(--hover-text);
+        }
+
+        .tool-card:hover h2 {
+            color: var(--hover-text);
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            resize: vertical;
+            font-family: 'Consolas', monospace;
+            margin-bottom: 1rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            flex-grow: 1;
+        }
+
+        button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .result-container {
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.5rem;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--header-bg);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .button-group {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+
+        /* Syntax highlighting for JSON */
+        .json-key {
+            color: #FF79C6;
+        }
+        .json-value {
+            color: #8BE9FD;
+        }
+        .json-string {
+            color: #F1FA8C;
+        }
+        .json-number {
+            color: #BD93F9;
+        }
+        .json-boolean {
+            color: #FF5555;
+        }
+        .json-null {
+            color: #6272A4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JSON Formatter</h1>
+        <p class="subtitle">Format, validate and minify JSON data. Powered by DeepSeek</p>
+    </header>
+
+    <div class="container">
+        <!-- Top Ad Banner -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense ad unit code -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="tool-card">
+            <h2>JSON Formatter</h2>
+            <textarea id="json-input" placeholder='Paste your JSON here... Example: {"name":"John","age":30,"city":"New York"}'></textarea>
+            
+            <div class="button-group">
+                <button id="format-btn">Format JSON</button>
+                <button id="minify-btn">Minify JSON</button>
+                <button id="validate-btn">Validate JSON</button>
+                <button id="clear-btn">Clear</button>
+            </div>
+
+            <div class="result-container">
+                <pre id="json-output"></pre>
+                <button class="copy-btn" id="copy-btn">Copy</button>
+            </div>
+        </div>
+
+        <!-- Middle Ad Banner -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense ad unit code -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="tool-card">
+            <h2>JSON Validator</h2>
+            <p>Check if your JSON is valid and get error messages if it's not.</p>
+            <div id="validation-result"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> JSON Formatter Tool. All rights reserved. Powered by DeepSeek.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // DOM Elements
+        const jsonInput = document.getElementById('json-input');
+        const jsonOutput = document.getElementById('json-output');
+        const formatBtn = document.getElementById('format-btn');
+        const minifyBtn = document.getElementById('minify-btn');
+        const validateBtn = document.getElementById('validate-btn');
+        const clearBtn = document.getElementById('clear-btn');
+        const copyBtn = document.getElementById('copy-btn');
+        const validationResult = document.getElementById('validation-result');
+
+        // Event Listeners
+        formatBtn.addEventListener('click', formatJSON);
+        minifyBtn.addEventListener('click', minifyJSON);
+        validateBtn.addEventListener('click', validateJSON);
+        clearBtn.addEventListener('click', clearAll);
+        copyBtn.addEventListener('click', copyToClipboard);
+
+        // Functions
+        function formatJSON() {
+            try {
+                const jsonObj = JSON.parse(jsonInput.value);
+                const formattedJson = JSON.stringify(jsonObj, null, 4);
+                jsonOutput.innerHTML = syntaxHighlight(formattedJson);
+                showValidationResult('JSON is valid and formatted!', 'success');
+            } catch (error) {
+                showValidationResult(`Error: ${error.message}`, 'error');
+                jsonOutput.textContent = '';
+            }
+        }
+
+        function minifyJSON() {
+            try {
+                const jsonObj = JSON.parse(jsonInput.value);
+                const minifiedJson = JSON.stringify(jsonObj);
+                jsonOutput.textContent = minifiedJson;
+                showValidationResult('JSON is valid and minified!', 'success');
+            } catch (error) {
+                showValidationResult(`Error: ${error.message}`, 'error');
+                jsonOutput.textContent = '';
+            }
+        }
+
+        function validateJSON() {
+            try {
+                JSON.parse(jsonInput.value);
+                showValidationResult('JSON is valid!', 'success');
+                jsonOutput.textContent = '';
+            } catch (error) {
+                showValidationResult(`Invalid JSON: ${error.message}`, 'error');
+                jsonOutput.textContent = '';
+            }
+        }
+
+        function clearAll() {
+            jsonInput.value = '';
+            jsonOutput.textContent = '';
+            validationResult.innerHTML = '';
+        }
+
+        function copyToClipboard() {
+            if (jsonOutput.textContent) {
+                navigator.clipboard.writeText(jsonOutput.textContent)
+                    .then(() => {
+                        const originalText = copyBtn.textContent;
+                        copyBtn.textContent = 'Copied!';
+                        setTimeout(() => {
+                            copyBtn.textContent = originalText;
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy: ', err);
+                    });
+            }
+        }
+
+        function showValidationResult(message, type) {
+            validationResult.innerHTML = `<p class="${type}">${message}</p>`;
+            validationResult.style.color = type === 'success' ? '#50FA7B' : '#FF5555';
+        }
+
+        function syntaxHighlight(json) {
+            if (!json) return '';
+            
+            json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                let cls = 'json-value';
+                if (/^"/.test(match)) {
+                    if (/:$/.test(match)) {
+                        cls = 'json-key';
+                    } else {
+                        cls = 'json-string';
+                    }
+                } else if (/true|false/.test(match)) {
+                    cls = 'json-boolean';
+                } else if (/null/.test(match)) {
+                    cls = 'json-null';
+                } else if (!isNaN(parseFloat(match))) {
+                    cls = 'json-number';
+                }
+                return '<span class="' + cls + '">' + match + '</span>';
+            });
+        }
+    </script>
+</body>
+</html>
